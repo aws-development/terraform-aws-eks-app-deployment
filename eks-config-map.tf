@@ -1,4 +1,5 @@
 resource "kubectl_manifest" "aws_auth" {
+
    yaml_body = <<YAML
 
 apiVersion: v1
@@ -15,10 +16,11 @@ data:
       rolearn: arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/kubectl_ssm_role
       username: system:node:{{EC2PrivateDNSName}}
 metadata:
-  labels: |
+  labels:
     app.kubernetes.io/managed-by: Terraform
   name: aws-auth
   namespace: kube-system
 
 YAML
+
 }
