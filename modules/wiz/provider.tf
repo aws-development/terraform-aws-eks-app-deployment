@@ -2,16 +2,6 @@ terraform {
   required_version = ">= 1.6"
 
   required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = ">= 5.14"
-    }
-
-    tls = {
-      source  = "hashicorp/tls"
-      version = ">= 4.0"
-    }
-
     helm = {
       source  = "hashicorp/helm"
       version = "~> 2.5.1"
@@ -48,21 +38,6 @@ provider "kubectl" {
   #load_config_file       = false
 }
 
-
-provider "aws" {
-  region     = var.REGION
-  access_key = var.AWS_ACCESS_KEY
-  secret_key = var.AWS_SECRET_KEY
-
-  default_tags {
-    tags = {
-      Environment = "dev"
-      Team        = "Ravikumar"
-      Repository  = "https://github.com/aws-development/terraform-aws-eks-deployment"
-      Service     = "eks"
-    }
-  }
-}
 
 provider "helm" {
 

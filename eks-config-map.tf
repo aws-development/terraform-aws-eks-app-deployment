@@ -7,11 +7,11 @@ data:
     - groups:
       - system:bootstrappers
       - system:nodes
-      rolearn: ${aws_iam_role.eks_node_group.arn}
+      rolearn: "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/${var.eks_cluster_name_prefix}-node-group"
       username: system:node:{{EC2PrivateDNSName}}
     - groups:
       - system:masters
-      rolearn: ${aws_iam_role.kubectl_ssm_role.arn}
+      rolearn: "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/kubectl_ssm_role"
       username: system:node:{{EC2PrivateDNSName}}
 metadata:
   labels:
