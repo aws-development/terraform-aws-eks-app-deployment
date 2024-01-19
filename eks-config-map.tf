@@ -1,6 +1,6 @@
 resource "kubectl_manifest" "aws_auth" {
   yaml_body = <<YAML
-apiVersion: v1
+apiVersion: v1beta1
 kind: ConfigMap
 data:
   mapRoles: |
