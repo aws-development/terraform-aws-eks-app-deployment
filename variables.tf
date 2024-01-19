@@ -1,53 +1,31 @@
+variable "eks_cluster_name_prefix" {
+  type        = string
+  description = "Name prefix used across resources created by this module."
+  default     = "wiz-eks-ap-dev-poc"
+}
+
+variable "env" {
+  type        = string
+  description = "Environment used across resources created by this module."
+  default     = "dev"
+}
+
 variable "AWS_ACCESS_KEY" {
   type = string
 }
 variable "AWS_SECRET_KEY" {
   type = string
 }
+
 variable "REGION" {
-  type    = string
-  default = "us-east-1"
+  type        = string
+  description = "AWS region used across resources created by this module."
+  default     = "ap-southeast-1"
 }
 
 
-variable "lob" {
+variable "project" {
   type        = string
-  default     = "wiz"
-  description = "lob tag"
-}
-
-variable "tf_provider" {
-  type        = string
-  default     = "aws"
-  description = "provider tag"
-}
-
-variable "env" {
-  type        = string
-  default     = "playpen"
-  description = "env tag"
-}
-
-variable "platform" {
-  type        = string
-  default     = "playpen"
-  description = "platform tag"
-}
-
-variable "application" {
-  type        = string
-  default     = "sandbox-app"
-  description = "application tag"
-}
-
-variable "cost_center" {
-  type        = string
-  default     = "aws-cc"
-  description = "cost_center tag"
-}
-
-variable "owner" {
-  type        = string
-  default     = "ravikumar"
-  description = "owner tag"
+  description = "Name prefix used across resources created by this module."
+  default     = "eks-poc"
 }
