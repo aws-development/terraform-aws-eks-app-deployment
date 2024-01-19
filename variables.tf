@@ -29,3 +29,13 @@ variable "project" {
   description = "Name prefix used across resources created by this module."
   default     = "eks-poc"
 }
+
+
+variable "wiz_auth_client_id" {
+  type = string
+}
+
+variable "wiz_auth_client_secret" {
+  type      = string
+  sensitive = true
+}
