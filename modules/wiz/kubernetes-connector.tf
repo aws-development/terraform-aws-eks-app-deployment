@@ -72,7 +72,7 @@ data "kubernetes_secret" "service_account_token" {
 }
 
 resource "wiz_kubernetes_connector" "connector" {
-  depends_on                   = [aws_eks_cluster.cluster]
+  #depends_on                   = [aws_eks_cluster.cluster]
   name                         = var.wiz_connector_name
   service_account_token        = data.kubernetes_secret.service_account_token.data.token
   server_certificate_authority = base64encode(data.kubernetes_secret.service_account_token.data["ca.crt"])

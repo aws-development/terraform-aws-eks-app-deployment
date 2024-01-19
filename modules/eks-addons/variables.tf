@@ -65,3 +65,10 @@ variable "alb_controller_settings" {
   default     = {}
   description = "Additional settings which will be passed to the Helm chart values."
 }
+
+
+variable "REGION" {
+  type        = string
+  description = "AWS region used across resources created by this module."
+  default     = "ap-southeast-1"
+}

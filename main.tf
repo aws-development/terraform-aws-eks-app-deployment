@@ -6,4 +6,5 @@ module "wiz" {
 
 module "eks-addons" {
   source   = "./modules/eks-addons"
+  REGION = var.REGION
 }
