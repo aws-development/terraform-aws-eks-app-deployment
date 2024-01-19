@@ -26,6 +26,7 @@ YAML
 
 }
 */
+/*
 resource "kubectl_manifest" "aws_auth" {
    yaml_body = <<YAML
 
@@ -50,4 +51,27 @@ metadata:
 
 YAML
 
+}
+*/
+
+
+resource "kubernetes_config_map" "aws-auth" {
+  data = {
+    "mapRoles" = <<EOT
+       - groups:
+         - system:bootstrappers
+         - system:nodes
+         rolearn: arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/${var.eks_cluster_name_prefix}-node-group
+         username: system:node:{{EC2PrivateDNSName}}
+       - groups:
+         - system:masters
+         rolearn: arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/kubectl_ssm_role
+         username: system:node:{{EC2PrivateDNSName}}
+EOT
+  }
+
+  metadata {
+    name      = "aws-auth"
+    namespace = "kube-system"
+  }
 }
