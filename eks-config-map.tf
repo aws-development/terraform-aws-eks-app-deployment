@@ -1,4 +1,4 @@
-?*
+/*
 resource "kubectl_manifest" "aws_auth" {
 
    yaml_body = <<YAML
