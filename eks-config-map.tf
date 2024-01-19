@@ -1,6 +1,7 @@
 resource "kubectl_manifest" "aws_auth" {
-  yaml_body = <<YAML
-apiVersion: v1beta1
+   yaml_body = <<YAML
+
+apiVersion: v1
 kind: ConfigMap
 data:
   mapRoles: |
@@ -18,7 +19,6 @@ metadata:
     app.kubernetes.io/managed-by: Terraform
   name: aws-auth
   namespace: kube-system
-
+  
 YAML
-
 }
