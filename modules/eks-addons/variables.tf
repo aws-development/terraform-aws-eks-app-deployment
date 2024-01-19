@@ -15,7 +15,7 @@ variable "alb_controller_iam_role_name" {
 
 variable "alb_controller_enabled" {
   type        = bool
-  default     = false
+  default     = true
   description = "Variable indicating whether deployment is enabled."
 }
 
